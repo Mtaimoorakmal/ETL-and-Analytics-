@@ -1,15 +1,16 @@
 # ETL-and-Analytics-
 
 
-This project implements a modern ETL pipeline from Odoo, API, and DB sources using an orchestrated, multi-layered approach.
+## 🔁 ETL Pipeline Architecture
 
-### 🔁 ETL Flow:
+This project implements a modern ETL pipeline that extracts data from Odoo, APIs, and databases, orchestrated using Apache Airflow.
+
+### 📊 Architecture Overview
 
 ![ETL Architecture](/images/architechure.drawio.png)
 
-- **Data Source**: Odoo, API, and SQL DB
-- **Landing Zone**: Raw data ingestion
-- **Staging**: Cleaned, transformed intermediate layer
-- **Production**: Final structured tables for reporting
-- **Visualization**: Power BI dashboards
-- **Orchestration**: Managed via Apache Airflow
+- **Landing Zone**: Raw data is ingested and stored in **AWS RDS**.
+- **Staging**: Data is cleaned and transformed in intermediate **RDS tables**.
+- **Production**: Final structured tables ready for reporting and analysis in **RDS**.
+- **Visualization**: Power BI connects to the RDS production layer via **ODBC** to build dashboards.
+- **Orchestration**: Entire pipeline is managed using **Apache Airflow DAGs** for scheduling and monitoring.
